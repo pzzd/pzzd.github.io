@@ -26,7 +26,7 @@
 
 <p>In this app, all events either change the search results, or take you to a different view (home page, detail page).</p>
 
-<p>Results list component in DOM:
+<p>Results list component in DOM:<br/>
 	<textarea><results-list
 	v-for="doc in results.response.docs"
 	:doc="doc"
@@ -35,7 +35,24 @@
 </p>
   
 <p>Template for results list component:
-	[https://ws-git.uchicago.edu/atlassian-bitbucket/projects/AJB/repos/webapp/browse/webapp/index.html#211]
+	<textarea><script type="text/x-template" id="results-list-template">
+<div class="card position">
+	<div class="card-body">
+		<router-link class="card-link" :aria-label="doc.name+'; '+units" tag="a" :to="{ name: 'detail', params: { id: doc.id } }">
+			<h2>{{ doc.name }}&nbsp;<i class="fas fa-angle-right" aria-hidden="true"></i></h2>
+			<p>
+				<span class="unit" v-if="units">{{ units }}</span>
+				<span class="loc" v-if="doc.location"><br><i class="fas fa-map-pin"></i> {{ doc.location }}</span>
+			</p>
+
+			<p class="date">
+				<span v-if="doc.open_date"><i class="far fa-calendar-alt"></i> {{ doc.open_date }}</span><span v-if="doc.deadline"> – <i class="far fa-calendar-times"></i> {{ doc.deadline }}</span>
+			</p>
+			<p v-if="desc">{{ desc }}</p>
+		</router-link>
+	</div>
+</div>
+</script></textarea>
 </p>
 
 <p>Js for results list component:
