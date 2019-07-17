@@ -34,26 +34,21 @@
 ></results-list></pre>
 </p>
   
-	template for results list component:
+<p>Template for results list component:
 	[https://ws-git.uchicago.edu/atlassian-bitbucket/projects/AJB/repos/webapp/browse/webapp/index.html#211]
+</p>
 
-	js for results list component:
+<p>Js for results list component:
 	[https://ws-git.uchicago.edu/atlassian-bitbucket/projects/AJB/repos/webapp/browse/webapp/js/src/app.js#104]
+</p>
 
+<p>To organize your code and reuse repeatable elements, you can build out the functionality into components.</p>
 
-To organize your code and reuse repeatable elements, you can build out the functionality into components. 
+<p>Component organization is up to you. I have everything in one file large html file, and it's not ideal: all the code for own component is spread all over the place.</p>
 
-Component organization is up to you. I have everything in one file, and you can see it's not ideal: all the code for own component is spread all over the place.
+<p>I think academicjobs.uchicago.edu is ready to be moved to a build tool, which is the recommended way to build more complex apps. Components are each coded in their own .vue file. Each file contains the HTML template, javascript code, and CSS. The build tool will convert all your components into a single javascript file. See https://vuejs.org/v2/guide/single-file-components.html for information.</p>
 
-I think this site is ready to be moved to a build tool, which is the recommended way to build more complex apps. Components are each coded in their own .vue file. Each file contains the HTML template, javascript code, and CSS. The build tool will convert all your components into a single javascript file.
-
-	[https://vuejs.org/v2/guide/components.html#Base-Example]
-
-
-
-One more thing:
-
-The documentation on the Vuejs site is excellent and thorough. And there are several video series on lynda.com for it.  
+<p>One more thing: The documentation on the Vuejs site is excellent and thorough. And there are several video series on lynda.com for it. </p> 
   
   
 </body>
