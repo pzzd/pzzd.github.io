@@ -34,7 +34,7 @@
 ></results-list></textarea>
 </p>
   
-<p>Template for results list component:
+<p>Template for results list component:<br/>
 	<textarea><script type="text/x-template" id="results-list-template">
 <div class="card position">
 	<div class="card-body">
@@ -55,8 +55,33 @@
 </script></textarea>
 </p>
 
-<p>Js for results list component:
-	[https://ws-git.uchicago.edu/atlassian-bitbucket/projects/AJB/repos/webapp/browse/webapp/js/src/app.js#104]
+<p>Js for results list component:<br/>
+	<textarea>Vue.component('results-list', {
+	props: ['doc'],
+	template:'#results-list-template',
+	computed: {
+		units: function() {
+			str = this.doc.unit_name;
+			return str;
+		},
+		desc: function() {
+			if (this.doc.description == undefined){
+				return '';
+			}
+			div = document.createElement('div');
+			div.innerHTML = this.doc.description;
+			str = div.textContent || div.innerText || '';
+
+			str = str.substring(0,200);
+
+			if (this.doc.description.length > 200) {
+				str = str.trim()+'...';
+			}
+			
+			return str;
+		}
+	}
+});</textarea>
 </p>
 
 <p>To organize your code and reuse repeatable elements, you can build out the functionality into components.</p>
