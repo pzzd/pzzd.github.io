@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss version='2.0' xmlns:atom="http://www.w3.org/2005/Atom">
+<channel> 
+
+<title>UChicago Web Site Promotions</title>
+<link>https://test-rss.xml</link>
+<atom:link href="https://test-rss.xml" rel="self" type="application/rss+xml" />
+<description>UChicago Web Site Promotions</description>
+<language>en-us</language>
+<pubDate>Tue, 22 Dec 2020 10:00:04 -0600</pubDate>
+
+
+<item>
+  <guid isPermaLink="false">1608655949</guid>
+  <title>25 year club</title>
+  <link>http://staffrecognition.uchicago.edu/</link>
+  <description></description>
+  <pubDate>Tue, 22 Dec 2020 10:00:04 -0600</pubDate>
+</item>
+
+<item>
+  <guid isPermaLink="false">1608655960</guid>
+  <title>accessibility</title>
+  <link>http://www.uchicago.edu/about/accessibility/</link>
+  <description></description>
+  <pubDate>Tue, 22 Dec 2020 10:00:04 -0600</pubDate>
+</item>
+
+</channel>
+</rss>
