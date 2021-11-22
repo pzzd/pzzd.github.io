@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Simple Building with Composer.json</title>
+
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+<body>
+
+	<header>
+		<h1>Simple Building with Composer.json</h1>
+	</header>
+
+	<main>
+
+<p>In Custom PHP Land, it can be complicated to load all dependencies, libraries, and assets of a web application. However, all dependencies, server-side and client-side, can be declared in a single composer.json in the vhost root.</p>
+
+<pre>
+{
+	"name": "my-org/my-lovely-web-app",
+	"description": "My Lovely Web App",
+	"license": "proprietary",
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://my.org.edu/packages/"
+		},	
+		{
+			"type": "git",
+			"url": "https://github.com/twbs/bootstrap.git"
+		},
+		{
+			"type": "git",
+			"url": "https://github.com/FortAwesome/Font-Awesome.git"
+		},
+		{
+			"type": "package",
+			"package": {
+				"name" : "jquery/jquery",
+				"version": "3.4.1",
+				"dist": {
+					"url": "https://code.jquery.com/jquery-3.4.1.min.js",
+					"type": "file"
+				}
+			}
+		},
+	],
+	"require": {
+		"twig/twig": "3.*",
+		"my-org/custom-package": "1.*",
+		"fortawesome/font-awesome": "5.15.1",
+		"jquery/jquery": "3.4.1",
+		"twbs/bootstrap": "v4.4.1"
+	},
+
+	"scripts": {
+		"post-autoload-dump": [
+			"rm -rf app/vendor",
+			"mkdir app/vendor",
+			"mv vendor/fortawesome app/vendor/fortawesome",
+			"mv vendor/jquery app/vendor/jquery",
+			"mv vendor/twbs app/vendor/twbs",
+			"rm -rf app/vendor/twbs/bootstrap/build app/vendor/twbs/bootstrap/js app/vendor/twbs/bootstrap/nuget app/vendor/twbs/bootstrap/scss app/vendor/twbs/bootstrap/site app/vendor/twbs/bootstrap/*.*"
+		]
+	}
+
+}
+</pre>
+
+<p>This example assume the web application has a vhost root (/) and a web root (/app). Server-side dependencies will be saved to /vendor by default.</p>
+
+<p>Client-side dependencies need to be moved to the web root. This can be done by using Composer scripts.</p>
+
+<p>Why use server-side composer.json to declare all dependencies?</p>
+
+<ul>
+<li>All the dependencies for an app can be found in one single manifest file.</li>
+<li>All dependencies can be fetched in a single build, instead of one build for PHP dependencies and one buld for JS dependencies.</li>
+<li>GitHub dependency graph and Dependabot alerts refers to composer.json for dependency review and security vulnerabilities.</li>
+<li>You don’t have to rely on a CDN for availability and security. If the CDN assets are not available and ‘composer update’ fails, your dependencies don’t disappear.</li>
+
+<h2>References</h2>
+<ul>
+	<li><a href='https://getcomposer.org/doc/articles/scripts.md#what-is-a-script-'>Composer: What is a Script?</a></li>
+	<li><a href='https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph'>GitHub: About the dependency graph</a></li>
+</ul>
+
+</main>
+  
+</body>
+</html>
