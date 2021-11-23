@@ -73,6 +73,11 @@ textarea {
 	margin-top: 10px;
 }
 
+pre.code{
+	background-color:#EEE;
+	font-size: smaller;
+}
+
 @media screen and (min-width:501px){
   img.screen {
 	width: 80%;
