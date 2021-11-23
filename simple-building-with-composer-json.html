@@ -17,9 +17,10 @@
 
 	<main>
 
-<p>In Custom PHP Land, it can be complicated to load all dependencies, libraries, and assets of a web application. However, all dependencies, server-side and client-side, can be declared in a single composer.json in the vhost root.</p>
+	<p>In Custom PHP Land, it can be complicated to load all server-side and client-side dependencies, libraries, and assets for a web application. However, all dependencies can be declared in a single composer.json in the vhost root.</p>
 
-<pre>
+	<h2>An Example</h2>
+<code>
 {
 	"name": "my-org/my-lovely-web-app",
 	"description": "My Lovely Web App",
@@ -69,21 +70,24 @@
 	}
 
 }
-</pre>
+</code>
 
-<p>This example assume the web application has a vhost root (/) and a web root (/app). Server-side dependencies will be saved to /vendor by default.</p>
+<p>This example assumes the web application has a vhost root (/) and a web root (/app). Server-side dependencies will be saved to /vendor by default.</p>
 
-<p>Client-side dependencies need to be moved to the web root. This can be done by using Composer scripts.</p>
+<p>Client-side dependencies need to be moved to the web root. This can be done by using Composer scripts. The above example saves all dependencies to /vendor; makes a new app/vendor directory; moves the javascript and css libraries to app/vendor; and removes some build files and other junk from one library.</p>
 
-<p>Why use server-side composer.json to declare all dependencies?</p>
+<h2>Why use server-side composer.json to declare all dependencies?</h2>
 
 <ul>
-<li>All the dependencies for an app can be found in one single manifest file.</li>
-<li>All dependencies can be fetched in a single build, instead of one build for PHP dependencies and one buld for JS dependencies.</li>
-<li>GitHub dependency graph and Dependabot alerts refers to composer.json for dependency review and security vulnerabilities.</li>
-<li>You don’t have to rely on a CDN for availability and security. If the CDN assets are not available and ‘composer update’ fails, your dependencies don’t disappear.</li>
+	<li>All the dependencies for an app can be found in one single manifest file. It's like a table of contents of all the libraries your app needs.</li>
+	<li>All dependencies can be fetched in a single build, instead of one build for PHP dependencies and one buld for JS dependencies.</li>
+	<li>GitHub dependency graph and Dependabot alerts refers to composer.json for dependency review and security vulnerabilities.</li>
+	<li>You don't have to rely on a CDN for availability and security. If the CDN assets are not available and ‘composer update’ fails, your dependencies don’t disappear.</li>
+	<li>You don't have to allow any external domains in Content-Security-Policy headers, because all external resources are now local.
+</ul>
 
 <h2>References</h2>
+		
 <ul>
 	<li><a href='https://getcomposer.org/doc/articles/scripts.md#what-is-a-script-'>Composer: What is a Script?</a></li>
 	<li><a href='https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph'>GitHub: About the dependency graph</a></li>
