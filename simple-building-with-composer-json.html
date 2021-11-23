@@ -72,8 +72,21 @@
 
 <p>This example assumes the web application has a vhost root (/) and a web root (/app). Server-side dependencies will be saved to /vendor by default.</p>
 
-<p>Client-side dependencies need to be moved to the web root. This can be done by using Composer scripts. The above example saves all dependencies to /vendor; makes a new app/vendor directory; moves the javascript and css libraries to app/vendor; and removes some build files and other junk from one library.</p>
+<p>Client-side dependencies need to be moved to the web root. This can be done by using Composer scripts. The above example saves all dependencies to /vendor; makes a new app/vendor directory; moves the javascript and css libraries to app/vendor; and removes some build files and other junk from one library. The resulting directory structure looks like this:</p>
+		
+<pre class='code'>
+- composer.json
+- composer.lock
+- vendor
+  - my-org
+  - twig
+- app
+  - fortawesome
+  - jquery
+  - twbs
+</pre>
 
+		
 <h2>Why use server-side composer.json to declare all dependencies?</h2>
 
 <ul>
