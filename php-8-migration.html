@@ -1,0 +1,51 @@
+My team is about to complete a project to migrate 50+ web apps to PHP 8. To reduce the mystery, I tried several different strategies to predict where are our apps might run into problems in an upgraded environment. Here is a review of those strategies.
+
+Compare PHP Storm inspections for PHP 7.4 and 8.1
+
+I created a custom inspection configuration for PHP Storm, enabling on the minimum inspection tools for PHP. In PHP Storm, you can set the language version in the editor. So by using a custom inspection template, and comparing code inspections between PHP 7.4 and 8.1, you can see what PHP Storm thinks of your 7.4 code running on 8.1. This turned up a lot of potential issues, especially undefined constants, a warning about the @ operator not silencing fatal errors, most of which turned ut to be non-issues. The most reliable findings were deprecated functions like money_format and the magic_quotes functions and predefined variables like $php_errormsg.
+
+Compare PHPStan inspections for PHP 7.4 and 8.0
+
+I was curious if we could compare the same inspections from a command line, too, and so I created inspection templates for PHP 7.4 and 8.0 (8.1 was not supported at the time). Then running the inspections was very easy, using the `diff` command. Like PHP Storm, which happens to use PHP Stan, there was a lot of noise. Again, the most useful results were deprecations.
+
+Search for changelog issues using a home-made bash script
+
+It took a long time to write simple greps looking for potential issues based on the changelog. The results were not impressive, and so I would not go through this effort again.
+
+Put inspections in a Composer package
+
+I bundled the PHP Storm inspection template, the PHPStan inspection configs, and my home-made bash script into a Composer package. This made it very easy to add inspection configs into a web app deployed on the web server of cloned to a laptop by requiring the package with Composer. Since PHPStan was wholly command line, this turned out to be an easy option to quickly check for deprecations:
+
+```
+cd my-web-app
+
+vendor/bin/phpstan analyse --memory-limit 1G -c vendor/ws/php-compatibility/phpstan/php7-4.neon > ~/Downloads/phpstan-php7-4.txt
+
+vendor/bin/phpstan analyse --memory-limit 1G -c vendor/ws/php-compatibility/phpstan/php8-0.neon > ~/Downloads/phpstan-php8-0.txt
+
+diff ~/Downloads/phpstan-php7-4.txt ~/Downloads/phpstan-php8-0.txt
+```
+
+It was good to have the flexibility to run inspections from the web server because some web apps use components (e.g., caching) that would be very difficult to deploy on a laptop.
+
+
+Unit test comparison
+
+Even though a lot of the prep work for inspecting code didn't turn out to be useful, it did give us a heads-up that we were going to have to efficiently test a lot of code in order to migrate so many web apps! For critical custom packages that most of our apps use, I wrote Behat unit tests that pass in PHP 7.4 in order to run them in 8.1 and fix the issues that arose. This was a ton of work, but turned out to be an excellent use of time and effort because the test results make it easy to identify and fix issues.
+
+
+Testing by hand
+
+Testing as a user of a web app is the most time-intensive and faulty because it's very difficult to guarantee good code coverage. But it was probably the most useful to make sure a web app works minimally. I couldn't figure out a way to get this done more efficiently as we lack an automated user testing tool.
+
+
+Security scans
+
+Our team is already very good about security scanning and remediation. We also leaned on our security scanning tool to identify "information leakage" vulnerabilities; that is, any PHP errors resulting from old code running on a new environment or any bugs we introduced in our refactors.
+ 
+
+In future:
+
+Because PHP Storm requires a license and opening an editor to run an inspection, I wouldn't use it.
+
+Get an automation tool
