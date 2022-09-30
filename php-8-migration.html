@@ -2,23 +2,22 @@ My team is about to complete the upgrade of 50+ web apps and a handful of custom
 
 Background
 
-
-The only thing in common across all our apps is PHP! Our apps are of different vintages. There is a varying degree of standardization in coding practices and code packages across these apps. The run on different environments, on-prem and off prep, and some are command-line apps. 
+The only thing in common across all our apps is PHP! Our apps are of different vintages. There is a varying degree of standardization in coding practices and code packages across these apps. They run on different environments, on-prem and elsewhere, and some are not even available over HTTP. 
 
 We leverage stable PHP packages where possible, but we do have some home-made Composer packages that address the unique needs of our organization.
 
 Our team members, past and present, have spent years getting all our apps and our environments in a state so that each migration is more painless than the previous one. To wit:
 
 Critical behaviors are programmed as testable units (e.g., classes).
-We have up-to-date unit tests (e.g., Behat).
-Dependencies are explicitly declared in our applications, and we can update them easily (e.g., Composer).
+We have up-to-date unit tests where feasible (e.g., Behat).
+We explicitly declare dependencies in our applications, and we can update them easily (e.g., Composer).
 We have some tools at our disposal (e.g., security scanning).
-We have some time to standardize our apps to some degree.
+We have time to standardize our apps to some degree.
 
 
-Recommended for the next big migration
+Recommendation for the next big migration
 
-1. Make a 'PHP Compatibility' Composer package so that inspections can be added easily to a PHP app. This package should include PHPStan two inspection templates: one for the original PHP version and one for the target version. Each web app requires this package in its composer.json. Now you can run inspections, checking for deprecations and important differences. 
+1. Make a 'PHP Compatibility' Composer package so that inspections can be added easily to a PHP app. This package should include two PHPStan inspection templates: one for the original PHP version and one for the target version. Each app requires this package in its composer.json. Now you can run inspections, checking for deprecations and important differences. 
 
 2. Write unit tests for custom code packages and critical chunks of code in each web app. Get the tests to a passing state on the current PHP environment to establish the baseline behavior. In the new environment, run the tests and refactor to pass the unit tests.
 
@@ -29,7 +28,7 @@ Recommended for the next big migration
 
 What worked and what didn't
 
-I can boil it down to this list of recommendations after trying several different strategies to predict where are our apps might run into problems in PHP 8. Here is a review of those strategies.
+We tried several different strategies to predict where are our apps might run into problems in PHP 8. Here is a review of the strategies we tried that led to the above recommendations.
 
 
 
@@ -41,13 +40,13 @@ It took a long time to write simple greps looking for potential issues based on 
 
 Compare PHP Storm inspections for PHP 7.4 and 8.1
 
-I created a custom inspection configuration for PHP Storm, enabling only the minimum inspection tools for PHP. In PHP Storm, you can set the language version in the editor. So by using a custom inspection template, and comparing code inspections between PHP 7.4 and 8.1, you can see what PHP Storm thinks of your 7.4 code running on 8.1. This turned up a lot of potential issues (e.g., undefined constants, warnings about the @ operator not silencing fatal errors), most of which turned out to be non-issues. The most reliable findings were deprecated functions like money_format and the magic_quotes functions and predefined variables like $php_errormsg.
+I created a custom inspection configuration for PHP Storm, enabling only the minimum inspection tools for PHP. In PHP Storm, you can set the language version in the editor. So by using a custom inspection template, and comparing code inspections between PHP 7.4 and 8.1, you can target differences according to PHP Storm between 7.4 and 8.1. This turned up a lot of potential issues (e.g., undefined constants, warnings about the @ operator not silencing fatal errors), but most of them turned out to be non-issues. The most reliable findings were deprecated functions like money_format and the magic_quotes functions and predefined variables like `$php_errormsg`.
 
 But there is an easier way to get at deprecations. PHP Storm uses the PHPStan open source library for many of its inspections. Because I don't typically use PHP Storm, because it requires a license, and because you have to open the desktop editor to run an inspection, I would not use it again. There is just too much manual work for the amount of code we needed to migrate, and PHPStan was just as effective...
 
 Compare PHPStan inspections for PHP 7.4 and 8.0
 
-I created PHPStan inspection templates for PHP 7.4 and 8.0 in order to compare inspections from a command line. Then running and comparing the inspections was very easy, using the `diff` command. Like PHP Storm, there was a lot of noise. Again, the most useful results were deprecations. Since PHPStan was so easy to set up, use, and potentially automate, I would use it again for the next big migration. 
+I created PHPStan inspection templates for PHP 7.4 and 8.0 in order to compare inspections from a command line. Like PHP Storm, there was a lot of noise and the most useful results were deprecations. Since PHPStan was so easy to set up, use, and potentially automate, I would use it again for the next big migration. 
 
 Since PHPStan was wholly command line, this turned out to be an easy option to quickly check for deprecations:
 
@@ -61,13 +60,13 @@ vendor/bin/phpstan analyse --memory-limit 1G -c vendor/ws/php-compatibility/phps
 diff ~/Downloads/phpstan-php7-4.txt ~/Downloads/phpstan-php8-0.txt
 ```
 
-It was good to have the flexibility to run inspections from the web server because some apps use components  that would be very difficult to deploy on a laptop (e.g., caching).
+It was also good to have the flexibility to run inspections from a server because some apps use components that would be very difficult to deploy on a laptop (e.g., caching). 
 
 
 
 Put inspections in a Composer package
 
-I bundled the PHP Storm inspection template, the PHPStan inspection configs, and my artisanal bash script into a Composer package. This made it very easy to add inspection configs into a an app by requiring the package with Composer. In the future, I would only include PHPStan other open-source library that worked as easily and as well. 
+I bundled the PHP Storm inspection template, the PHPStan inspection configs, and my artisanal bash script into a Composer package. This made it very easy to add inspection configs into an app by requiring the package with Composer. In the future, I would only include PHPStan or other open-source library that worked as easily and as well. 
 
 For future PHP updates, it could potentially be very easy to update the compatibility package. I would also like to explore automating a check against PHPStan or our custom compatibility package with GitHub.
 
@@ -79,11 +78,12 @@ Even though a lot of the prep work for inspecting code didn't turn out to be use
 
 Testing by hand
 
-Testing as a human user of a web app is the most time-intensive and faulty because it's very difficult to guarantee good code coverage. But it was probably necessary to make sure a web app works minimally. I would love to try out an automated user testing tool next time around!
+Testing as a human user of a web app is the most time-intensive and faulty because it's very difficult to guarantee good code coverage. But it was probably necessary to make sure a web app works minimally. Some of our apps have acceptance test scripts, which is an improvement, but still very time-consuming. I would love to try out an automated user testing tool next time around!
+
 
 
 Security scans
 
-We also leaned on our security scanning tool to identify "information leakage" vulnerabilities; that is, any PHP errors resulting from old code running on a new environment plus any bugs introduced in refactoring. This is an off-label use for a DAST, but our team can't compete with the shear number of requests and coverage. If you are suppressing errors, analyze error logs during the period of the security scan.
+We also leaned on our security scanning tool to identify "information leakage" vulnerabilities; that is, any PHP errors resulting from old code running on a new environment plus any bugs introduced in refactoring. This is an off-label use for a DAST, but our team can't compete with the shear number of requests and coverage.
  
 
