@@ -1,21 +1,40 @@
-My team is about to complete the upgrade of 50+ web apps and a handful of custom packages to PHP 8. This has been a year-long process that provided a lot of lessons! Now is a good opportunity to document what I would recommend for the next big migration, followed by more details about what worked and what did not work.
+<!DOCTYPE html>
+<html lang="en">
 
-Background
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Recommendations for the next big migration</title>
 
-The only thing in common across all our apps is PHP! Our apps are of different vintages. There is a varying degree of standardization in coding practices and code packages across these apps. They run on different environments, on-prem and elsewhere, and some are not even available over HTTP. 
+		<link rel="stylesheet" href="style.css">
+	</head>
 
-We leverage stable PHP packages where possible, but we do have some home-made Composer packages that address the unique needs of our organization.
+<body>
 
-Our team members, past and present, have spent years getting all our apps and our environments in a state so that each migration is more painless than the previous one. To wit:
+	<header>
+		<h1>Recommendations for the next big migration</h1>
+	</header>
 
-Critical behaviors are programmed as testable units (e.g., classes).
-We have up-to-date unit tests where feasible (e.g., Behat).
+	<main>
+  
+<p>My team is about to complete the upgrade of 50+ web apps and a handful of custom packages to PHP 8. This has been a year-long process that provided a lot of lessons! Now is a good opportunity to document what I would recommend for the next big migration, followed by more details about what worked and what did not work.</p>
+
+  <h2>Background</h2>
+
+<p>The only thing in common across all our apps is PHP! Our apps are of different vintages. There is a varying degree of standardization in coding practices and code packages across these apps. They run on different environments, on-prem and elsewhere, and some are not even available over HTTP. </p>
+
+<p>We leverage stable PHP packages where possible, but we do have some home-made Composer packages that address the unique needs of our organization.</p>
+
+<p>Our team members, past and present, have spent years getting all our apps and our environments in a state so that each migration is more painless than the previous one. To wit:</p>
+<ul>
+ <li>Critical behaviors are programmed as testable units (e.g., classes).</li>
+ <li>We have up-to-date unit tests where feasible (e.g., Behat).</li>
 We explicitly declare dependencies in our applications, and we can update them easily (e.g., Composer).
 We have some tools at our disposal (e.g., security scanning).
 We have time to standardize our apps to some degree.
 
 
-Recommendation for the next big migration
+Recommendations for the next big migration
 
 1. Make a 'PHP Compatibility' Composer package so that inspections can be added easily to a PHP app. This package should include two PHPStan inspection templates: one for the original PHP version and one for the target version. Each app requires this package in its composer.json. Now you can run inspections, checking for deprecations and important differences. 
 
@@ -87,3 +106,7 @@ Security scans
 We also leaned on our security scanning tool to identify "information leakage" vulnerabilities; that is, any PHP errors resulting from old code running on a new environment plus any bugs introduced in refactoring. This is an off-label use for a DAST, but our team can't compete with the shear number of requests and coverage.
  
 
+</main>
+  
+</body>
+</html>
