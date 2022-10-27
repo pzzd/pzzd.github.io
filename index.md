@@ -1,7 +1,11 @@
-- [Recommendations for the next big migration](php-8-migration.html) (2022-09-30, web development)
-- <a href='simple-building-with-composer-json.html'>Simple Building with Composer.json</a> (2021-11-22, web development)
-- <a href='girl-scouts-volunteer/newsletters/gs-way-newsletter-20211106.pdf'>By the Way</a> (2021-11-06, Girl Scouts)
-- <a href='girl-scouts-volunteer/newsletters/democracy-newsletter-2021.pdf'>Daughters of Democracy</a> (2021-05-3, Girl Scouts)
+| Title | Category | Date |
+| --- | --- | --- |
+| [Recommendations for the next big migration](php-8-migration.html) | Web Development | 2022-09-30 |
+| [Simple Building with Composer.json](simple-building-with-composer-json.html) | Web Developement | 2021-11-22 | 
+| [By the _Way_](girl-scouts-volunteer/newsletters/gs-way-newsletter-20211106.pdf) | Girl Scouts | 2021-11-06 |
+| Daughters of Democracy](girl-scouts-volunteer/newsletters/democracy-newsletter-2021.pdf) | Girl Scouts | 2021-05-3 |
+
+
 - <a href='girl-scouts-volunteer/newsletters/newsletter-20201220.pdf'>Scribes' Scribbles</a> (2020-12-20, Girl Scouts)
-- <a href='compare-fever-1793-contagion.md'>Comparison of Fever, 1793 and Contagion</a> (2019-09-15)
+- <a href='compare-fever-1793-contagion'>Comparison of Fever, 1793 and Contagion</a> (2019-09-15)
 - <a href='vue-js-academic-jobs.html'>Building Academicjobs.u.e in Vue.js</a> (2019-07-17, web development)
