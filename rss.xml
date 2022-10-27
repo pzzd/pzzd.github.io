@@ -19,10 +19,18 @@
     <title>Recommendations for the next big migration</title>
     <link>https://pzzd.github.io/php-8-migration.html</link>
     <guid>https://pzzd.github.io/php-8-migration.html</guid>
-    <description>Lessons learned during a recent PHP migration</description>
+    <description>I learned some lessons during a recent PHP migration.</description>
     <pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate>
   </item>
 
+    <item>
+    <title>Simple Building with Composer.json</title>
+    <link>https://pzzd.github.io/simple-building-with-composer-json.html</link>
+    <guid>https://pzzd.github.io/simple-building-with-composer-json.html</guid>
+    <description>Load all server-side and client-side dependencies, libraries, and assets for a web application using Composer.</description>
+    <pubDate>Mon, 22 Nov 2021 00:00:00 +0000</pubDate>
+  </item>
+  
 </channel>
 
 </rss>
