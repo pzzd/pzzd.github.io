@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+  xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+  >
+
+<channel>
+  <title>pzzd.github.io</title>
+  <link>https://pzzd.github.io/rss.xml</link>
+  <atom:link href="https://pzzd.github.io/rss.xml" rel="self" type="application/rss+xml" />
+  <description>Thoughts on a various topics</description>
+
+  <item>
+    <title>Recommendations for the next big migration</title>
+    <link>https://pzzd.github.io/php-8-migration.html</link>
+    <guid>https://pzzd.github.io/php-8-migration.html</guid>
+    <description>Lessons learned during a recent PHP migration</description>
+    <pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate>
+  </item>
+
+</channel>
+
+</rss>
