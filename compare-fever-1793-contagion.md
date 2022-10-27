@@ -8,7 +8,7 @@ Fever, 1793, is for teen readers, who, like the protagonist, may not yet be awar
 
 Fever, 1793, is a coming-of-age story set during the yellow fever epidemic that strikes Philadelphia in that year. The narrator is Matilda Cook, a fourteen-year-old girl who lives with her mother and grandfather. They run Cook's Coffeehouse, a popular establishment in town, with the help of Eliza, a freed former slave.
 
-Every chapter reads like a diary entry, titled with the date. At the beginning, a young reader can easily identify with Matilda: she likes to sleep in, avoid housework, and sneak away to visit her crush Nathanial. Her mother scolds her for laziness and daydreaming. Matilda fantasizes add a shop with international goods and artwork to the coffeeshop, and idea that her mother denounces.
+Every chapter reads like a diary entry, titled with the date. At the beginning, a young reader can easily identify with Matilda: she likes to sleep in, avoid housework, and sneak away to visit her crush Nathanial. Her mother scolds her for laziness and daydreaming. Matilda fantasizes about adding a shop with international goods and artwork to the coffeeshop, and idea that her mother denounces.
 
 During the course of the epidemic, as days and weeks pass, Matilda faces uncertainty and danger. Gossip about the fever spreads through Philadelphia. One of Matilda's friends dies suddenly. Her mother catches the fever. Philadelphians are quarantined, leave town, or succumb to disease. Businesses close their doors. Farmers refuse to come to town to sell food. Her grandfather dies during a looting episode. Matilda is effectively orphaned, having lost track of her mother.
 
