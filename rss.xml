@@ -16,6 +16,14 @@
   <description>Thoughts on a various topics</description>
 
   <item>
+    <title>Add an integrity check for file dependencies in Composer</title>
+    <link>https://pzzd.github.io/composer-integrity-check</link>
+    <guid>https://pzzd.github.io/composer-integrity-check</guid>
+    <description>Add a hash to prevent fetching a tampered dependency.</description>
+    <pubDate>Wed, 21 Dec 2022 00:00:00 +0000</pubDate>
+  </item>
+  
+  <item>
     <title>Recommendations for the next big migration</title>
     <link>https://pzzd.github.io/php-8-migration.html</link>
     <guid>https://pzzd.github.io/php-8-migration.html</guid>
