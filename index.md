@@ -1,4 +1,6 @@
 ## Web Development
+[Add an integrity check for file dependencies in Composer](composer-integrity-check.md)
+
 [Recommendations for the next big migration](php-8-migration.html)
 
 [Simple Building with Composer.json](simple-building-with-composer-json.html)
