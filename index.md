@@ -11,7 +11,6 @@
 
 ## Girl Scouts
 
-### Badge Workshops for Daisies, Brownies, and Juniors
 [Coding For Good 2](https://github.com/pzzd/girl-scouts-volunteer/blob/main/coding-for-good-2/CodingForGood2.pdf) (badge workshop for Daisies, Brownies, and Juniors)
 
 [Coding For Good 1](https://github.com/pzzd/girl-scouts-volunteer/blob/main/coding-for-good-1/prog-for-good-one-day-1.pdf) (badge workshop for Daisies, Brownies, and Juniors)
