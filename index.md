@@ -12,20 +12,20 @@
 ## Girl Scouts
 
 ### Badge Workshops for Daisies, Brownies, and Juniors
-[Coding For Good 1](https://github.com/pzzd/girl-scouts-volunteer/blob/main/coding-for-good-1/prog-for-good-one-day-1.pdf)
+[Coding For Good 2](https://github.com/pzzd/girl-scouts-volunteer/blob/main/coding-for-good-2/CodingForGood2.pdf) (badge workshop for Daisies, Brownies, and Juniors)
 
-[Coding For Good 2](https://github.com/pzzd/girl-scouts-volunteer/blob/main/coding-for-good-2/CodingForGood2.pdf)
+[Coding For Good 1](https://github.com/pzzd/girl-scouts-volunteer/blob/main/coding-for-good-1/prog-for-good-one-day-1.pdf) (badge workshop for Daisies, Brownies, and Juniors)
 
-[Democracy (part 2)](https://github.com/pzzd/girl-scouts-volunteer/blob/main/democracy/democracy-workshop-2.pdf)
+[Girl Scout Way](https://github.com/pzzd/girl-scouts-volunteer/blob/main/girl-scout-way/girl-scout-way-presentation.pdf) (badge workshop for Daisies, Brownies, and Juniors)
 
+[By the _Way_](https://github.com/pzzd/girl-scouts-volunteer/blob/main/newsletters/gs-way-newsletter-20211106.pdf) (troop newsletter)
 
+[Democracy (part 2)](https://github.com/pzzd/girl-scouts-volunteer/blob/main/democracy/democracy-workshop-2.pdf) (badge workshop for Daisies, Brownies, and Juniors)
 
-### Troop Newsletters
-[By the _Way_](girl-scouts-volunteer/newsletters/gs-way-newsletter-20211106.pdf)
+[Daughters of Democracy](https://github.com/pzzd/girl-scouts-volunteer/blob/main/newsletters/democracy-newsletter-2021.pdf) (troop newsletter)
 
-[Daughters of Democracy](girl-scouts-volunteer/newsletters/democracy-newsletter-2021.pdf)
+[Scribes' Scribbles](https://github.com/pzzd/girl-scouts-volunteer/blob/main/newsletters/newsletter-20201220.pdf) (troop newsletter)
 
-[Scribes' Scribbles](girl-scouts-volunteer/newsletters/newsletter-20201220.pdf)
 
 
 
