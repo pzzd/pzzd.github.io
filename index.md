@@ -1,4 +1,6 @@
-## Web Development
+## App Development
+[Putting up with user input (OWASP Albuquerque presentation)](https://github.com/pzzd/owasp-talks/blob/main/injection-talk.pdf)
+
 [Add an integrity check for file dependencies in Composer](composer-integrity-check.md)
 
 [Recommendations for the next big migration](php-8-migration.html)
