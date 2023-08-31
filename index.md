@@ -1,5 +1,5 @@
 ## App Development
-[Putting up with user input (OWASP Albuquerque presentation)](https://github.com/pzzd/owasp-talks/blob/main/injection-talk.pdf)
+[Putting up with user input](https://github.com/pzzd/owasp-talks/blob/main/injection-talk.pdf) ([OWASP Albuquerque](https://owasp.org/www-chapter-albuquerque) presentation)
 
 [Add an integrity check for file dependencies in Composer](composer-integrity-check.md)
 
