@@ -1,0 +1,32 @@
+# Search Results Pollution
+
+A vulnerability with embedding Google search results on your web site has [recently appeared in the news](https://www.businessinsider.com/google-loophole-buying-drugs-online-hijack-website-2023-9?op=1). This has been an exploit for a while and there are some ways to prevent it.
+
+## How are search results polluted?
+
+Any web site that displays a user's unfiltered search term may be inadvertently hosting nefarious content and allowing Google to index it.
+
+Let's say you have a web site that lets users search your pages using Google. Your search result page displays results from pages in your own site that Google has indexed. This page also shows a "you searched for" block above the results which shows the user's search term. 
+
+This is innocuous when the search term is "where can I adopt a puppy" or "where can I find cancer treatment". But it is nefarious when the search term has explicit information that a bad actor means to have indexed by Google. To a Google bot, it appears that your site is hosting this nefarious content, and your site will show as the source of this information in Google search results.
+
+<img width="400" alt="search term looking for cancer treatment" src="https://github.com/pzzd/pzzd.github.io/assets/5471867/8531433d-43de-4e96-8cc8-4db2be610104">
+
+<img width="400" alt="search term offering to sell drugs" src="https://github.com/pzzd/pzzd.github.io/assets/5471867/06a3dc14-6869-43a2-9ead-4f6378eb6d05">
+
+Note that the indexable content is the search term. The search itself does not have to be successful or return any results.
+
+I don't know the exact mechanism a bad actor would use to index such content. It is likely possible by making a web page with links to search results on other sites.
+
+## How can search result pollution be prevented?
+
+The most effective way to prevent search result pollution is to not write out a user's search term. Even Google does not show a user's search term outside of the search input element.
+
+Another way to prevent the problem is to add a robots.txt file to your web site that tells Google not to crawl the search results page:
+```
+User-agent: *
+Disallow: /my-search-page/
+```
+You can use an [alternative to a robots.txt file](https://developers.google.com/search/docs/crawling-indexing/block-indexing), too.
+
+This approach is no guarantee, though: it relies on Google to honor the disallow rule. If Google decides to ignore your disallow rule, your site will be vulnerable.
