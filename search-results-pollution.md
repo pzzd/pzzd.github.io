@@ -30,3 +30,7 @@ Disallow: /my-search-page/
 You can use an [alternative to a robots.txt file](https://developers.google.com/search/docs/crawling-indexing/block-indexing), too.
 
 This approach is no guarantee, though: it relies on Google to honor the disallow rule. If Google decides to ignore your disallow rule, your site will be vulnerable.
+
+## How can a mess be cleaned up?
+
+After blocking the Google bot from your search page and removing the elementy writing out a user's search term, send a recrawl request or page removal request to Google. This part is a moving target as Google changes the tools and rules around such requests now and then.
