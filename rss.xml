@@ -16,6 +16,14 @@
   <description>Thoughts on a various topics</description>
 
   <item>
+    <title>Search Results Pollution</title>
+    <link>https://pzzd.github.io/search-results-pollutionk</link>
+    <guid>https://pzzd.github.io/search-results-pollution</guid>
+    <description>Bad actors can take advantege of embedded Google search results, but there are ways to control how your site is indexed.</description>
+    <pubDate>Tue, 03 Oct 2023 00:00:00 +0000</pubDate>
+  </item>
+  
+  <item>
     <title>Add an integrity check for file dependencies in Composer</title>
     <link>https://pzzd.github.io/composer-integrity-check</link>
     <guid>https://pzzd.github.io/composer-integrity-check</guid>
